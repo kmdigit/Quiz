@@ -6,11 +6,21 @@ class HappyParty {
     require(first.length == second.length)
 
     val totalInterest = first ++ second
+
+    val counts =
+      for {
+        i <- totalInterest
+        cnt = totalInterest.count(_ == i)
+      } yield cnt
+    counts.max
+
+    /*
     var maxCount = 1
     for (inter <- totalInterest) {
       val cnt = totalInterest.count(_ == inter)
       if (cnt > maxCount) maxCount = cnt
     }
     maxCount
+    */
   }
 }
